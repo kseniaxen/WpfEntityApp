@@ -5,47 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" MinWidth="250">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <!--<ColumnDefinition Width="auto"/>-->
-            <ColumnDefinition/>
+            <ColumnDefinition MinWidth="250"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel
+        <WrapPanel
             Grid.Row="0"
             Grid.Column="0"
             Orientation="Horizontal">
-            <!--<TextBlock
-                Margin="15,0,0,0"
-                FontWeight="Bold"
-                VerticalAlignment="Center">
-                FirstName
-            </TextBlock>-->
-            <TextBlock
-                Text="FirstName"
-                Margin="15,0,0,0"
-                FontWeight="Bold"
-                VerticalAlignment="Center"/>
-            <TextBox
-                Name="firstName"
-                Width="100"
-                Margin="15,10,0,10"
-                MaxHeight="25"/>
-            <TextBlock
-                Text="LastName"
-                Margin="15,0,0,0"
-                FontWeight="Bold"
-                VerticalAlignment="Center"/>
-            <TextBox
-                Name="lastName"
-                Width="100"
-                Margin="15,10,0,10"
-                MaxHeight="25"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Text="FirstName"
+                    Margin="15,0,0,0"
+                    FontWeight="Bold"
+                    VerticalAlignment="Center"/>
+                <TextBox
+                    Name="firstName"
+                    Width="100"
+                    Margin="15,10,0,10"
+                    MaxHeight="25"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Text="LastName"
+                    Margin="15,0,0,0"
+                    FontWeight="Bold"
+                    VerticalAlignment="Center"/>
+                <TextBox
+                    Name="lastName"
+                    Width="100"
+                    Margin="15,10,0,10"
+                    MaxHeight="25"/>
+            </StackPanel>
             <Button
                 Content="Add"
                 Margin="15,10,0,10"
@@ -56,7 +54,7 @@
                 MaxHeight="25"
                 Width="50"
                 />
-        </StackPanel>
+        </WrapPanel>
         <DataGrid
             Name="authorsDataGrid"
             Grid.Row="1"
