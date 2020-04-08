@@ -62,5 +62,51 @@
             CanUserAddRows="False"
             CanUserSortColumns="True"
             ItemsSource="{Binding}"/>
+        <WrapPanel
+            Grid.Row="0"
+            Grid.Column="1"
+            Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Text="PublisherName"
+                    Margin="15,0,0,0"
+                    FontWeight="Bold"
+                    VerticalAlignment="Center"/>
+                <TextBox
+                    Name="publisherName"
+                    Width="100"
+                    Margin="15,10,0,10"
+                    MaxHeight="25"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Text="Address"
+                    Margin="15,0,0,0"
+                    FontWeight="Bold"
+                    VerticalAlignment="Center"/>
+                <TextBox
+                    Name="address"
+                    Width="100"
+                    Margin="15,10,0,10"
+                    MaxHeight="25"/>
+            </StackPanel>
+            <Button
+                Content="Add"
+                Margin="15,10,0,10"
+                Padding="3"
+                FontSize="10"
+                Click="Button_Click_1"
+                FontWeight="Bold"
+                MaxHeight="25"
+                Width="50"
+                />
+        </WrapPanel>
+        <DataGrid
+            Name="publisherDataGrid"
+            Grid.Row="1"
+            Grid.Column="1"
+            CanUserAddRows="False"
+            CanUserSortColumns="True"
+            ItemsSource="{Binding}"/>
     </Grid>
 </Window>

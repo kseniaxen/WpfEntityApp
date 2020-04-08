@@ -25,16 +25,25 @@ namespace WpfUI
     {
         private ObservableCollection<Author> authors
             = new ObservableCollection<Author>();
+        private ObservableCollection<Publisher> publishers
+           = new ObservableCollection<Publisher>();
         public MainWindow()
         {
             InitializeComponent();
             authorsDataGrid.DataContext = authors;
+            publisherDataGrid.DataContext = publishers;
             using (LibraryContext db = new LibraryContext())
             {
                 db.Authors.ToList().ForEach(
                     a => {
                         Console.WriteLine(a.FirstName + " " + a.LastName);
                         authors.Add(a);
+                    }
+                );
+                db.Publishers.ToList().ForEach(
+                    a => {
+                        Console.WriteLine(a.PublisherName + " " + a.Address);
+                        publishers.Add(a);
                     }
                 );
             }
@@ -50,6 +59,19 @@ namespace WpfUI
                     );
                 db.SaveChanges();
                 authors.Add(author);
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            using (LibraryContext db = new LibraryContext())
+            {
+                Publisher publisher =
+                    db.Publishers.Add(
+                        new Publisher() { PublisherName = publisherName.Text, Address = address.Text }
+                    );
+                db.SaveChanges();
+                publishers.Add(publisher);
             }
         }
     }
